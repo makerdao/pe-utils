@@ -1,0 +1,22 @@
+{
+  "name": "@makerdao/hardhat-utils",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "ts-node -T ./src/index.ts",
+    "format": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --check \"./**/*.ts\"",
+    "format:fix": "prettier --config ../../.prettierrc --ignore-path ../../.prettierignore --write \"./**/*.ts\"",
+    "lint": "eslint --ext .ts src test",
+    "lint:fix": "yarn lint --fix",
+    "typecheck": "tsc --noEmit --incremental false --composite false",
+    "clean": "rm -rf dist && rm -f tsconfig.build.tsbuildinfo",
+    "test": "mocha --config ../../.mocharc.js",
+    "test:fix": "yarn lint:fix && yarn format:fix && yarn test && yarn typecheck"
+  },
+  "dependencies": {
+    "ethers": "^5.4.4"
+  }
+}
