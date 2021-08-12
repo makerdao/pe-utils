@@ -17,6 +17,12 @@
     "test:fix": "yarn lint:fix && yarn format:fix && yarn test && yarn typecheck"
   },
   "dependencies": {
-    "ethers": "^5.4.4"
+    "hardhat": "^2.4.1",
+    "ethers": "^5.4.4",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.0",
+    "chai": "^4.2.0",
+    "@types/chai": "^4.2.12",
+    "ethereum-waffle": "^3.4.0"
   }
 }
