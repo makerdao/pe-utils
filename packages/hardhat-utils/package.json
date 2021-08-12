@@ -13,16 +13,19 @@
     "lint:fix": "yarn lint --fix",
     "typecheck": "tsc --noEmit --incremental false --composite false",
     "clean": "rm -rf dist && rm -f tsconfig.build.tsbuildinfo",
-    "test": "mocha --config ../../.mocharc.js",
+    "test": "true",
     "test:fix": "yarn lint:fix && yarn format:fix && yarn test && yarn typecheck"
   },
   "dependencies": {
-    "hardhat": "^2.4.1",
-    "ethers": "^5.4.4",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
-    "chai": "^4.2.0",
     "@types/chai": "^4.2.12",
-    "ethereum-waffle": "^3.4.0"
+    "@types/lodash": "^4.14.172",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.4",
+    "hardhat": "^2.4.1",
+    "lodash": "^4.17.21",
+    "ts-essentials": "^7.0.3"
   }
 }
