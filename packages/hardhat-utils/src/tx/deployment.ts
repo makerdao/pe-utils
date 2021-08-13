@@ -1,8 +1,10 @@
-import { ContractFactory, Signer } from 'ethers'
+import { Signer } from 'ethers'
 import { ethers } from 'hardhat'
 import { isEmpty } from 'lodash'
 
-export async function simpleDeploy<T extends ContractFactory>(
+import { ContractFactoryLike } from '../types'
+
+export async function simpleDeploy<T extends ContractFactoryLike>(
   name: string,
   args: Parameters<T['deploy']>,
 ): Promise<ReturnType<T['deploy']>> {
@@ -10,7 +12,7 @@ export async function simpleDeploy<T extends ContractFactory>(
   return factory.deploy(...(args as any))
 }
 
-export async function deployUsingFactory<T extends ContractFactory>(
+export async function deployUsingFactory<T extends ContractFactoryLike>(
   signer: Signer,
   factory: T,
   args: Parameters<T['deploy']>,
@@ -23,7 +25,7 @@ export async function deployUsingFactory<T extends ContractFactory>(
   return contractDeployed as any
 }
 
-export async function deployUsingFactoryAndVerify<T extends ContractFactory>(
+export async function deployUsingFactoryAndVerify<T extends ContractFactoryLike>(
   signer: Signer,
   factory: T,
   args: Parameters<T['deploy']>,

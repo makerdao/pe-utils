@@ -1,10 +1,16 @@
 import { Signer, Wallet } from 'ethers'
 import { getContractAddress } from 'ethers/lib/utils'
 
-export async function getAddressOfNextDeployedContract(signer: Signer): Promise<string> {
+/**
+ * Get address of the future contract
+ * @param signer
+ * @param offset - default (0) means next address
+ * @returns
+ */
+export async function getAddressOfNextDeployedContract(signer: Signer, offset: number = 0): Promise<string> {
   return getContractAddress({
     from: await signer.getAddress(),
-    nonce: await signer.getTransactionCount(),
+    nonce: (await signer.getTransactionCount()) + offset,
   })
 }
 

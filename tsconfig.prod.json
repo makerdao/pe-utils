@@ -10,8 +10,5 @@
     "incremental": true
   },
   "files": [],
-  "references": [
-    { "path": "./packages/package-a/tsconfig.build.json" },
-    { "path": "./packages/package-b/tsconfig.build.json" }
-  ]
+  "references": [{ "path": "./packages/hardhat-utils/tsconfig.build.json" }]
 }

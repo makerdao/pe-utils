@@ -1,5 +1,6 @@
 export * from './address'
 export * from './assertPublicInterface'
-export * as auth from './auth'
+export * from './auth'
 export * from './env'
-export * as tx from './tx'
+export * from './mocks'
+export * from './tx'
