@@ -22,3 +22,11 @@ export interface AuthableContract extends BaseContract {
     Rely(usr?: string | null): TypedEventFilter<[string], { usr: string }>
   }
 }
+
+/**
+ * Use this minimal interface to overcome any problems between incompatible ethers versions
+ */
+export interface AuthableLike {
+  deny: any
+  rely: any
+}

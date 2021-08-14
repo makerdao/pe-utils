@@ -2,12 +2,13 @@ import { expect } from 'chai'
 import { ethers } from 'hardhat'
 
 import { getRandomAddress } from '../address'
-import { AuthableContract } from './AuthableContract'
+import { AuthableContract, AuthableLike } from './AuthableContract'
 
 /**
  * Gets all active wards of a given contract. Turns out that it's not so trivial since events might be quite misleading.
  */
-export async function getActiveWards(authContract: AuthableContract): Promise<string[]> {
+export async function getActiveWards(_authContract: AuthableLike): Promise<string[]> {
+  const authContract = _authContract as AuthableContract
   const relyEvents = await authContract.queryFilter(authContract.filters.Rely())
 
   const relies = relyEvents.map((r) => r.args.usr)
