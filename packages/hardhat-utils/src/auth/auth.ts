@@ -6,10 +6,14 @@ import { AuthableContract, AuthableLike } from './AuthableContract'
 
 /**
  * Gets all active wards of a given contract. Turns out that it's not so trivial since events might be quite misleading.
+ * This implementation simply get all wards every relied and filter the ones that are still active.
  */
-export async function getActiveWards(_authContract: AuthableLike): Promise<string[]> {
+export async function getActiveWards(
+  _authContract: AuthableLike,
+  fromBlockOrBlockhash?: string | number,
+): Promise<string[]> {
   const authContract = _authContract as AuthableContract
-  const relyEvents = await authContract.queryFilter(authContract.filters.Rely())
+  const relyEvents = await authContract.queryFilter(authContract.filters.Rely(), fromBlockOrBlockhash)
 
   const relies = relyEvents.map((r) => r.args.usr)
 
