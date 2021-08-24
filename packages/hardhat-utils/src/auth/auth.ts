@@ -6,7 +6,7 @@ import { AuthableContract, AuthableLike } from './AuthableContract'
 
 /**
  * Gets all active wards of a given contract. Turns out that it's not so trivial since events might be quite misleading.
- * This implementation simply get all wards every relied and filter the ones that are still active.
+ * This implementation simply gets all wards even relied and filter the ones that are not active anymore.
  */
 export async function getActiveWards(
   _authContract: AuthableLike,
